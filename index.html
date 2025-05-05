@@ -35,12 +35,8 @@
       border-right: none;
       animation: none;
     }
-    .cursor {
-      display: inline-block;
-      width: 1px;
-      background-color: #fff;
-      animation: blink 0.7s steps(1) infinite;
-      vertical-align: bottom;
+    $1height: 1em;
+      $2
     }
     @keyframes blink {
       0%, 100% { background-color: transparent; }
@@ -71,7 +67,8 @@
   <div class="wrapper">
     <p id="subtext" class="sub"><span id="typed"></span><span class="cursor"></span></p>
     <div class="cta" id="discbuttoncontainer">
-      <button>Join The Discord</button>
+      <button onclick="location.href='https://discord.gg/restarttag'">Restart Tag Discord</button>
+      <button onclick="location.href='https://discord.gg/spm'">SPM Discord</button>
     </div>
   </div>
   <script>
