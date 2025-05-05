@@ -32,8 +32,9 @@
       text-align: left;
       position: relative;
       opacity: 1;
+      border-right: none;
+      animation: none;
     }
-    
     .cursor {
       display: inline-block;
       width: 1px;
@@ -41,10 +42,9 @@
       animation: blink 0.7s steps(1) infinite;
       vertical-align: bottom;
     }
-
     @keyframes blink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #fff; }
+      0%, 100% { background-color: transparent; }
+      50% { background-color: #fff; }
     }
     .cta {
       margin-top: 2.5rem;
@@ -69,47 +69,43 @@
 </head>
 <body>
   <div class="wrapper">
-    <p id="subtext" class="sub"><span id="typed"></span><span class="cursor">|</span></p>
+    <p id="subtext" class="sub"><span id="typed"></span><span class="cursor"></span></p>
     <div class="cta" id="discbuttoncontainer">
-      <button onclick="location.href='https://discord.gg/restarttag'">Join The Discord</button>
+      <button>Join The Discord</button>
     </div>
   </div>
   <script>
-  const pastebintext = `About Me pastebin by/for 988540013228724224/restarttag cuz i hate discords guts when it comes to character limits.
-  ~~~~~~~About Me~~~~~~
-  discord.gg/restarttag
-  discord.gg/spm
-  owner of Restart Tag
-  main owners of SPModding
-  i dont really check my message requests or accept friend requests too often unless i feel the need to.
-  dont say "i have a question" say "hey, (question)"
-  my only accs: restarttag, godatag, projectmemories, projectchaun, cycystudios(placeholderforcycysusername), crazyparkingnow (cuz of squiddy inside joke)
-  https://www.meta.com/experiences/25026342046956942 (taken down but i have another one approved so ill release later)
-  https://www.discord.gg/restarttag
-  
-  anyway peace and follow for more :)`;
-  
-  const typed = document.getElementById("typed");
-  const e = document.getElementById("discbuttoncontainer");
-  let pos = 0;
-  
-  function typewriter() {
-    if (pos < pastebintext.length) {
-      typed.textContent += pastebintext[pos++];
-      setTimeout(typewriter, 25);
-    } else {
-      document.querySelector('.cursor').style.display = 'none';
-      setTimeout(makebuttonappear, 400);
-    }
-  }
-  
-  function makebuttonappear() {
-    e.style.opacity = 1;
-    e.style.transform = "scale(1)";
-  }
-  
-  window.addEventListener("load", typewriter);
+    const pastebintext = `About Me pastebin by/for 988540013228724224/restarttag cuz i hate discords guts when it comes to character limits.
+~~~~~~~About Me~~~~~~
+discord.gg/restarttag
+discord.gg/spm
+owner of Restart Tag
+main owners of SPModding
+i dont really check my message requests or accept friend requests too often unless i feel the need to.
+dont say "i have a question" say "hey, (question)"
+my only accs: restarttag, godatag, projectmemories, projectchaun, cycystudios(placeholderforcycysusername), crazyparkingnow (cuz of squiddy inside joke)
+https://www.meta.com/experiences/25026342046956942 (taken down but i have another one approved so ill release later)
+https://www.discord.gg/restarttag
 
+anyway peace and follow for more :)`;
+    const typed = document.getElementById("typed");
+    const cursor = document.querySelector('.cursor');
+    const btnCont = document.getElementById("discbuttoncontainer");
+    let pos = 0;
+    function typewriter() {
+      if (pos < pastebintext.length) {
+        typed.textContent += pastebintext[pos++];
+        setTimeout(typewriter, 25);
+      } else {
+        cursor.style.display = 'none';
+        setTimeout(makebuttonappear, 400);
+      }
+    }
+    function makebuttonappear() {
+      btnCont.style.opacity = 1;
+      btnCont.style.transform = "scale(1)";
+    }
+    window.addEventListener("load", typewriter);
   </script>
 </body>
 </html>
