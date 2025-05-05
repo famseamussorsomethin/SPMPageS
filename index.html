@@ -11,7 +11,7 @@
       width: 100%; height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
-      background: radial-gradient(circle at center, #12debc 0%, #012626 80%);
+      background: radial-gradient(circle at center, #12debc 0%, #004a1c 80%);
       overflow: hidden;
     }
     .wrapper {
@@ -69,13 +69,13 @@
 </head>
 <body>
   <div class="wrapper">
-    <p id="subtext" class="sub"><span id="typed"></span><span class="cursor"></span></p>
+    <p id="subtext" class="sub"><span id="typed"></span><span class="cursor">|</span></p>
     <div class="cta" id="discbuttoncontainer">
       <button>Join The Discord</button>
     </div>
   </div>
   <script>
-    const pastebintext = `About Me pastebin by/for 988540013228724224/restarttag cuz i hate discords guts when it comes to character limits.
+  const pastebintext = `About Me pastebin by/for 988540013228724224/restarttag cuz i hate discords guts when it comes to character limits.
 ~~~~~~~About Me~~~~~~
 discord.gg/restarttag
 discord.gg/spm
@@ -88,24 +88,28 @@ https://www.meta.com/experiences/25026342046956942 (taken down but i have anothe
 https://www.discord.gg/restarttag
 
 anyway peace and follow for more :)`;
-    const typed = document.getElementById("typed");
-    const cursor = document.querySelector('.cursor');
-    const btnCont = document.getElementById("discbuttoncontainer");
-    let pos = 0;
-    function typewriter() {
-      if (pos < pastebintext.length) {
-        typed.textContent += pastebintext[pos++];
-        setTimeout(typewriter, 25);
-      } else {
-        cursor.style.display = 'none';
-        setTimeout(makebuttonappear, 400);
-      }
+  
+  const typed = document.getElementById("typed");
+  const e = document.getElementById("discbuttoncontainer");
+  let pos = 0;
+  
+  function typewriter() {
+    if (pos < pastebintext.length) {
+      typed.textContent += pastebintext[pos++];
+      setTimeout(typewriter, 25);
+    } else {
+      document.querySelector('.cursor').style.display = 'none';
+      setTimeout(makebuttonappear, 400);
     }
-    function makebuttonappear() {
-      btnCont.style.opacity = 1;
-      btnCont.style.transform = "scale(1)";
-    }
-    window.addEventListener("load", typewriter);
+  }
+  
+  function makebuttonappear() {
+    e.style.opacity = 1;
+    e.style.transform = "scale(1)";
+  }
+  
+  window.addEventListener("load", typewriter);
+
   </script>
 </body>
 </html>
